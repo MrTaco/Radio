@@ -1,15 +1,38 @@
-from radio import Radio 
-var_radio=Radio("TDs")
-desea_continuar=True
+from radio import Radio
+t_radio= Radio("Toshiba")
+desea_continuar = True
+opcion = 0
 while desea_continuar:
-	print("1-Subir Volumen \n2-Bajar Volumen \n3-Subir Estacion \n4-Bajar Estacion \n5-Cambiar Frecuencia \n6-Apagar \n7-Encender "
-	if opc==1:
-		var_radio.subir_volumen()
-	elif opc==2:
-		var_radio.bajar_volumen()
-	elif opc==3:
-		var_radio.subir_emisora()
-	elif opc==4:
-		var_radio.bajar_emisora()
-	elif opc==5:
-		var_radio.
+	if not t_radio.encendido:
+		print("1. Encender \n 2. Salir")
+		resp = int(input("que opcion desea: "))
+
+		if resp == 1:
+			t_radio.encender()
+		elif resp == 2:
+			desea_continuar = False
+	else:
+		print("""
+			1. Subir volumen
+			2. Subir emisora
+			3. Bajar volumen
+			4. Bajar emisora
+			5. Cambiar de Frecuencia
+			6. Salir
+			""")
+		resp = int(input("que opcion desea: "))
+
+		if resp == 1:
+			t_radio.subir_volumen()
+		elif resp == 2:
+			t_radio.subir_emisora()
+		elif resp == 3:
+			t_radio.bajar_volumen()
+		elif resp == 4:
+			t_radio.bajar_emisora()
+		elif resp == 5:
+			t_radio.cambiar_frecuencia()
+		elif resp == 6:
+			t_radio.apagar()
+			desea_continuar = False
+		print(t_radio)

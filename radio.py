@@ -8,7 +8,7 @@ class Radio():
 		self.volumen = 0
 
 	def encender(self):
-		self.encendido = True
+		self.encendido = True 
 	def apagar(self):
 		self.encendido = False
 	def subir_volumen(self):
@@ -22,32 +22,43 @@ class Radio():
 		else: 
 			self.volumen -= 5
 	def subir_emisora(self):
-		if self.en_fm = True:
-			if self.emisora_fm >= 107.0:
+		if self.en_fm == True:
+			if self.emisora_fm > 107.0:
 				self.emisora_fm = 87.0
-			elif self.emisora_fm <= 87.0:
+			elif self.emisora_fm < 87.0:
 				self.emisora_fm = 107.0
 			else:
 				self.emisora_fm += 0.5
 		else:
-			if self.emisora_am >= 1300:
+			if self.emisora_am > 1300:
 				self.emisora_am = 300
-			elif self.emisora_am <= 300:
+			elif self.emisora_am < 300:
 				self.emisora_am = 1300
 			else: 
-				self. emisora_am += 40
+				self.emisora_am += 40
 	def bajar_emisora(self):
-		if self.en_fm = True:
-			if self.emisora_fm >= 107.0:
+		if self.en_fm == True:
+			if self.emisora_fm > 107.0:
 				self.emisora_fm = 87.0
-			elif self.emisora_fm <= 87.0:
+			elif self.emisora_fm < 87.0:
 				self.emisora_fm = 107.0
 			else:
 				self.emisora_fm -= 0.5
 		else:
-			if self.emisora_am >= 1300:
+			if self.emisora_am > 1300:
 				self.emisora_am = 300
-			elif self.emisora_am <= 300:
+			elif self.emisora_am < 300:
 				self.emisora_am = 1300
 			else: 
 				self. emisora_am -= 40
+	def cambiar_frecuencia(self):
+		self.en_fm = not self.en_fm
+
+	def __str__(self):
+		resultado = ""
+		resultado += "encendido: " + str(self.encendido)
+		resultado += "am/fm: " + str(self.en_fm)
+		resultado += "emisora am: " + str(self.emisora_am)
+		resultado += "emisora fm: " + str(self.emisora_fm)
+		resultado += "volumen: " + str(self.volumen)
+		return resultado
